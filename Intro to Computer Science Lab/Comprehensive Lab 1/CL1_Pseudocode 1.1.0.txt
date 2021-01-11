@@ -1,0 +1,59 @@
+//Description: THis pseudocode provides the basic algorithm to meet the requirements described in the Spotify document
+
+import Scanner,File,and FileNotFoundException
+
+createe file object and give file path
+create two scanners objects: one for userInput and one for fileInput
+create variabes:
+	int numAttemps - keeps track of number of attempts it takes user to get verified in the verification section of the code
+	String userName - stores user string
+	char accountType - char stored defines account type ---- gotten from the first letter from the username varaible
+	user name variable will now be from index 1 to the last index.........."substring(...,...)..."
+
+****************************************************************************************				////////////////USER VERIFICATION STARTS HERE///////////////////////////
+ask user to enter their username and password																	
+if the username and password match with database and "Password", print "Welcome Username"
+	--if the username attempts 3 times, then terminate the program.
+if username and/or passwoird is wrong, then go back and try again
+
+
+
+
+IF USER IS VERIFIED......
+***************************************************************************************************				/////////////////MAIN WHILE LOOP "engine" STARTS HERE///////////////////////////////////
+CREATE A MAIN WHILE LOOP THAT HANDLES THE MENU OPTIONS AS WELL AS THE ABILITY TO CHOOSE TO QUIT:
+print menu options and ask user to enter corresponding menu integer choice
+
+if user chooses 1:
+	//THIS CHIOCE IS "VIEW PLAN"
+	print out the details of the plan
+	print out monthly and yearly cost of the plan (including tax)
+	ask user to enter amount he/she wishes to pay for the month
+		--store this in a variable userSpendAmount
+	if userSpendAmount is less than monthly cost of plan:
+		--let user know you will have to put their subscription on hold
+
+if user chooses 2:
+	//THIS CHOICE IS CHANGE PLAN
+	tell user to choose one of the listed plans below
+	
+	craete a while loop that checks if the choice is valid
+		if plan choice is NOT 1,2, or 3,
+			--user needs to try again. this is unlimited
+			--return back to the beggining of the while loop
+		if the user selects the plan they ALREADY have:
+			--tell user they already have the plan they chose
+		else:
+			--if user chooses student plan:
+				ask user to enter their email. they may only try TWICE!!!!
+				if user email contains ".edu":
+					--tell the user "welcome to student plan" and describe the details of the plan
+				else:
+					--ask them if they would like to try again
+					--have them try again. remember, the user can only check twise
+					--if they already tried twice, then tell them they are NOT eligible for the student plan
+			else:
+				--tell user "Welcome user to..." and mention their chosen plan!
+	
+if the user chooses 3:
+	--break away from the MAIN loop and give them a goodbye message. "Come again soon!"										

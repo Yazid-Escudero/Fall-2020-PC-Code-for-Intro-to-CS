@@ -1,0 +1,332 @@
+//Author: Yazid Escudero
+//Course: CS1101
+//Instructor: Dr. Daniel Mejia
+//Description:
+		This text file contains the pseudocode that pertains to the  CL1_Main.java file. In this pseducocode
+		the purpose is to outline  the basic structure of the code that I will implement into a solution that 
+		satifies the requirements specified for the lab. I will also include algorithms that I plan to use, and will
+		present the logic flow of my code and the program as a whole.
+		
+		This program will use the "database" that exists in the file "spotifydatabase.txt"
+		
+
+//BEGIN PSEUDOCODE
+
+import java.util.Scanner							//enables creation of a scanner object
+import java.io.File;								//enables creation of instance/object of a text file
+import java.io.FileNotFoundException;				//enables the use of handling exceptions
+
+//CLASS CREATION
+public class CL1_Main {
+
+	//MAIN METHOD CREATION
+	public static void main(String[] args) {
+	
+		//cathches errors and throws an exception if file is unreadable for whatever reason
+		try {
+			File newFile = create file object from ("File Path");
+			Scanner inFile = Read.from(newFile);
+			Scammer inUser = Read.from(System.in);
+			
+			boolean userVerified = true.if(username entered is found) || false.if(username is not found);
+			int numAttempts = 0 //this will keep track of number of tries it takes user to log in
+			String userName;
+			char accountType;
+			
+			//the first step is to verify the user before anything else. We will only allow up to three attempts
+			//and after that, user is redirected to an error message and the program is closed
+			
+			userVerified = false;	//we do this because we need to enter loop AND user is NOT verified yet...
+				while (!userVerified) {
+					printToScreen "PLEASE ENTER YOUR USERNAME"
+							userName = inUser.nextLine();
+					//now we check, with a while loop, if the username exists
+					while (inFile.lineToCheckExists) {
+						String tempString = inUser.nextLine()
+						accountType = tempString.charAt(0)			//if this is the correct username then type will already be saved into this variablea
+						tempString = tempString.substring(1);		//this ignores/discards the first character
+																	//which is just the account type indicator
+						if (userName.compareTo(tempString) == 0) {
+						
+							printToScreen "PLEASE ENTER PASSWORD"
+							String userPassword = inUser.nextLine()
+							
+							if(userPassword contains "Password") {
+								set userVerified = true;
+								printToScreen "WELCOME {userName}"
+								break;
+							}
+						}
+						
+						}	//end of nested loop
+						
+						if (userVerified) {
+							break;
+						}
+						else {
+							increase numAttempts += 1;
+						}
+						
+						if (numAttempts == 3) {
+							printToScreen "THREE FAILED ATTEMPTS. UNABLE TO VERIFY IDENTITY"
+							break;
+						}
+						else {
+							printToScreen "PLEASE TRY AGAIN"
+						}
+					}
+					
+					//if the user got verified....
+					//INSIDE THIS IF STATEMENT IS WHERE THE MAGIC HAPPENS!!!!
+					/*******************************************
+					*NOW
+					*WE
+					*GET
+					*INTO
+					*THE
+					*MAIN
+					*PORTION
+					*OF
+					*THE
+					*CODE 
+					********************************************/
+					if (userVerified) {
+						//body of the main code
+						
+						while (true) {
+						
+							PrintMenu();
+							printToScreen ">> "
+							char userChoice;
+							
+							if (userChoice is NOT euqal to V or v or C or c or Q or q) {
+								printToScreen "INVALID CHOICE. PLEASE TRY AGAIN"
+								continue;
+							}
+							else {
+								if (userChoice is v or V) {
+								
+									if (accountType is I) {
+										printToScreen "{userName}, you currently have access to the"
+										printToScreen " Individual Plan. You have access to 6 premium accounts, a playlist"
+										printToScreen "for your family, regularly updated with music you all enjoy!"
+										printToScreen "You can block explicit music, you have ad-free music listening,"
+										printToScreen "offline access to music, and on demand playback!"
+										
+										printToScreen ""
+									
+										printToScreen "Your premium for Individual receipt:"
+										printToScreen "Monthly cost: " + 9.99 * 1.0825
+										printToScreen "Yearly cost: " + 9.99 * 1.0825 * 12
+									
+										printToScreen "How much would you like to spend this month?
+									
+										double userSpendAmount = inUser.nextDouble();
+										if (userSpendAmount - 9.99*1.0825 < 0.0001 OR userSpendAmount > 9.99*1.0825) {
+											printToScreen "Awesome. You can jam this month. Enjoy!"
+										}
+										else {
+											printToScreen "Hm... seems like we will have to put your subscription on hold."
+										}
+									}
+									else if (accountType is F) {
+											printToScreen "{userName}, you currently have access to the"																										
+											printToScreen "Family Plan. You account includes Ad-Supported Hulu, Showtime, "
+											printToScreen " you can listen to ad-free music, and you have access to on-demand"
+											printToScreen " playback!"
+											
+											
+											printToScreen ""
+											
+											printToScreen "Your premium for Family receipt:"
+											printToScreen "Monthly cost: " + 14.99 * 1.0825
+											printToScreen "Yearly cost: " + 14.99 * 1.0825 * 12
+											
+											printToScreen "How much would you like to spend this month?
+									
+											double userSpendAmount = inUser.nextDouble();
+											if (userSpendAmount - 14.99 * 1.0825 < 0.0001 OR userSpendAmount > 14.99 * 1.0825) {
+												printToScreen "Awesome. You can jam this month. Enjoy!"
+											}
+											else {
+												printToScreen "Hm... seems like we will have to put your subscription on hold."
+											}
+										}
+										else if (accountType is S) {
+											printToScreen "{userName}, you currently have access to the"																										
+											printToScreen "Student Plan. You account includes being able to oisten to music ad-free, "
+											printToScreen " you can play anywhere - even when you're offline! "
+											printToScreen " And you get access to on demand playback!"
+											
+											
+											printToScreen ""
+											
+											printToScreen "Your premium for Student receipt:"
+											printToScreen "Monthly cost: " + 4.99 * 1.0825
+											printToScreen "Yearly cost: " + 4.99 * 1.0825 * 12
+											
+											printToScreen "How much would you like to spend this month?
+									
+											double userSpendAmount = inUser.nextDouble();
+											if (userSpendAmount - 4.99 * 1.0825 < 0.0001 OR userSpendAmount > 4.99 * 1.0825) {
+												printToScreen "Awesome. You can jam this month. Enjoy!"
+											}
+											else {
+												printToScreen "Hm... seems like we will have to put your subscription on hold."
+											}
+										}
+								}
+							
+								else if (userChoice is C or c) {
+									//FIXME: Add functionality here!
+									printToScreen "Hello {userName}, you asked to change your plan. Please choose an option below"
+									
+									
+									
+									
+									
+									while (!validPlanChoice) {
+									
+										PrintPlanMenu();
+										printToScreen ">> "
+										int planChoice = inUser.nextInt();
+										char planCategory;
+										bool validPlanChoice = false;
+									
+										if (planChoice is NOT 1 or 2 or 3) {
+											printToScreen "Invalid Choice. Please try again"
+											continue;
+										}
+										
+										else {
+											//THIS IS IMPORTANT TO BE ABLE TO COMPARE THE PLANS AND IF HE/SHE ALREADY HAS THE SELECTED PLAN
+											if (planChoice = 1) {
+												planCategory = 'I';
+											}
+											else if (planChoice = 2) {
+												planCategory = 'F';
+											}
+											else if (planChoice = 3) {
+												planCategory = 'S';
+											}
+											
+											//now compare the plans
+											if ( accountType is equal to planCategory) {
+												printToScreen "You already have this plan"
+											}
+											//if they chose a new plan... 
+											else {
+												printToScreen "It seems you have chosen the"
+											
+												switch (planChoice) {
+													case 1:
+														printToScreen "Individual Payment Plan"
+														break;
+													case 2:
+														printToScreen "Family Payment Plan"
+														break;
+													case 3:
+														printToScreen "Student Payment Plan"
+														break;
+													default:
+														printToScreen "This branch of the switch statement will never execute"
+														break;
+												}
+												
+												if (planChoice == 'S') {
+													int numTriesForStudent = 0; 
+													
+													while (true) {
+													
+														printToScreen "Please enter your student e-mail address so we can verify you"
+														printToScreen ">> "
+														String studentEmail = inUser.nextLine().trim();
+														if (studentEmail.contains(".edu")) {
+															printToScreen "{userName}, welcometo Premium Student! You now have access to: Hulu, SHOWTIME,"
+															printToScreen " ad-free music offline, and on-demand playback!"
+														}
+														else {
+														
+															//IF THIS IS THEIR SECOND TRY...
+															if (numTriesForStudent == 1) {
+																printToScreen "You are not eligible for the premium Student Plan"
+																break;
+															}
+															
+															printToScreen "I am sorry. That email adress is not valid for the Student Payment Plan."
+															printToScreen "Would you like to try again?"
+															printToScreen "Enter Y for yes, N for no:
+															printToScreen ">> "
+															char tryAgain = inUser.nextLine().charAt();
+															
+															if (tryAgain == 'N') {
+																printToScreen "Thank you for listening on Spotify! Good-bye!"
+																break;
+															}
+															else {
+																++numTriesForStudent
+															}
+												
+														}
+													}
+									
+												}//end of first plan choice if statement
+												else {
+													if (planChoice == 'F') {
+														printToScreen "Welcome to the Family Plan!"
+													}
+													else if (planChoice == 'I') {
+														printToScreen "Welcome to the Indivicual Plan!"
+													}
+												}	
+										
+									}
+										
+								}
+							
+								else if (userChoice is q or Q) {
+									printToScreen "Exiting Program. Come again soon!"
+									break;
+								}
+						
+							}
+						}
+					}
+					
+				else {
+					printToScreen "PLEASE TRY AGAIN IN THE FUTURE"
+					printToSCreen "TERMINATING USER PROGRAM SESSION"
+				}
+					
+				
+			
+			
+			
+		} catch(Exception e) {
+			System.out.println("Error while reading the file");
+		}
+	
+	
+	}
+	
+	public static void PrintMenu() {
+		printToScreen "WELCOME {userName}"
+		printToScreen "CHOOSE OPTION FROM THE MENU BELOW"
+		printToScreen "\tV - View Current Plan"
+		printToScren "\tC - Change Plan
+		printToScreen "Q - Quit"
+		printToSCreen ""
+		printToScreen "PLEASE ENTER CORRECT CHARACTER TO SELECT MENU OPTION"
+	}
+	
+	public static void PrintPlanMenu() {
+	
+		printToScreen "\tIndividual: $9.99/mo"
+		printToScreen "\tFamily:     $14.99/mo"
+		printToScreen "\tStudent:    $4.99/mo"
+		
+	}
+	
+	}
+
+}
